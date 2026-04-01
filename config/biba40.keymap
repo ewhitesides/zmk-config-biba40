@@ -27,12 +27,12 @@ As such, those are in use within the default layer at this time.*/
 
 
 &soft_off {
-    hold-time-ms = <3000>; // Only turn off if the key is held for 3 seconds or longer.
+    hold-time-ms = <2000>; // Only turn off if the key is held for 3 seconds or longer.
 };
 
 // original 900/1 for mouse, 700/1 for scroll
 &mmv {
-    time-to-max-speed-ms = <300>;  // Snappy: reaches max speed quickly
+    time-to-max-speed-ms = <400>;  // Snappy: reaches max speed quickly
     acceleration-exponent = <1>;   // Linear curve for predictable movement
 };
 
