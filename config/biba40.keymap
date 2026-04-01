@@ -41,6 +41,21 @@ As such, those are in use within the default layer at this time.*/
 };
 
  / {
+    behaviors {
+        td_f1: tap_dance_f1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F1>, <&kp F11>;
+        };
+        td_f2: tap_dance_f2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F2>, <&kp F12>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -61,10 +76,10 @@ As such, those are in use within the default layer at this time.*/
 
         lower_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |       |   !   |   @   |   #   |   $   |   %   |                          |   ^   |   &   |   *   |   (   |   )   |       |
-            // |       |       |       |       |       |       |                          |       |   _   |   +   |   {   |   }   |   |   |
-            // |       |       |       |       |       |       |                          |       |   ~   |       |       |       |       |
-            // |       |       |       |       |       |       |                          |       |       | HOME  | PGDN  | PGUP  |  END  |
+            // |       |   !   |   @   |   #   |   $   |   %   |                           |   ^   |   &   |   *   |   (   |   )   |       |
+            // |       |       |       |       |       |       |                           |       |   _   |   +   |   {   |   }   |   |   |
+            // |       |       |       |       |       |       |                           |       |   ~   |       |       |       |       |
+            // |       |       |       |       |       |       |                           |       |       | HOME  | PGDN  | PGUP  |  END  |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
 &trans     &kp EXCL  &kp AT    &kp HASH   &kp DLLR     &kp PRCNT                &kp CARET  &kp AMPS        &kp ASTRK  &kp LPAR  &kp RPAR  &trans
@@ -76,10 +91,10 @@ As such, those are in use within the default layer at this time.*/
 
         raise_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |       |  1   |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |       |
-            // |       |      |      |      |      |      |                              |      |  -   |  =   |  [   |  ]   |   \   |
-            // |       |      |      |      |      |      |                              |      |  `   |      |      |      |       |
-            // |       |      |      |      |      |      |                              |      |      |      |      |      |       |
+            // |       |  1   |  2   |  3   |  4   |  5   |                                     |  6   |  7   |  8   |  9   |  0   |       |
+            // |       |      |      |      |      |      |                                     |      |  -   |  =   |  [   |  ]   |   \   |
+            // |       |      |      |      |      |      |                                     |      |  `   |      |      |      |       |
+            // |       |      |      |      |      |      |                                     |      |      |      |      |      |       |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
 &trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5          &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &trans
@@ -91,31 +106,31 @@ As such, those are in use within the default layer at this time.*/
 
         adjust_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |  BT CLR  | BT SEL0 | BT SEL1 | BT SEL2 | BT SEL3 | BT SEL4 |                    |          |          |          |          |          | SOFF |
-            // |  BT NXT  | OUT TOG | OUT USB | OUT BLE |         |         |                    |          |          |          |          |          |      |
-            // |  BT PRV  | CLR ALL |         |         |         |         |                    |          |          |          |          |          |      |
-            // |          |         |         |         |         |         |                    |          |          |          |          |          |      |
+            // |        |   F1   |   F2   |   F3   |   F4   |   F5   |               |   F6   |   F7   |   F8   |   F9   |   F10  |  DEL   |
+            // |        |        |        |        |        |        |               |        |        |        |        |        |        |
+            // |        |        |        |        |        |        |               |        |        |        |        |        |        |
+            // |        |        |        |        |        |        |               |        |        |        |        |        |        |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3          &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &soft_off
-&bt BT_NXT  &out OUT_TOG    &out OUT_USB  &out OUT_BLE  &trans                &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&bt BT_PRV  &bt BT_CLR_ALL  &trans        &trans        &trans                &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans          &trans        &trans        &trans                &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &td_f1          &td_f2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp DEL
+&trans      &trans          &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans      &trans          &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans      &trans          &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
             >;
         };
 
         function_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |        |        |        |        |        |        |               |        |        |        |        |        |        |
-            // |        |        |        |        |        |        |               |        |        | WWBK   |        |        | WWFWD  |
-            // |        |        |        |        |        |        |               |        |        | S LEFT | S DOWN |  S UP  | S RIGHT|
-            // |        |        |        |        |  LCLK  |  RCLK  |               |        |        | M LEFT | M DOWN |  M UP  | M RIGHT|
+            // | BT CLR | BT SEL0 | BT SEL1 | BT SEL2 | BT SEL3 | BT SEL4 |         |        |        |        |        |        | SOFF    |
+            // | BT NXT | OUT TOG | OUT USB | OUT BLE |         |         |         |        |        | WWBK   |        |        | WWFWD   |
+            // | BT PRV | CLR ALL |         |         |         |         |         |        |        | S LEFT | S DOWN |  S UP  | S RIGHT |
+            // |        |         |         |         |  LCLK   |  RCLK   |         |        |        | M LEFT | M DOWN |  M UP  | M RIGHT |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &trans          &trans          &trans           &trans
-&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &kp C_AC_BACK   &trans          &trans           &kp C_AC_FORWARD
-&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP     &msc SCRL_RIGHT
-&trans    &trans    &trans    &trans    &mkp LCLK  &mkp RCLK                          &trans    &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &mmv MOVE_RIGHT
+&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3          &bt BT_SEL 4         &trans    &trans    &trans          &trans          &trans           &soft_off
+&bt BT_NXT  &out OUT_TOG    &out OUT_USB  &out OUT_BLE  &trans                &trans               &trans    &trans    &kp C_AC_BACK   &trans          &trans           &kp C_AC_FORWARD
+&bt BT_PRV  &bt BT_CLR_ALL  &trans        &trans        &trans                &trans               &trans    &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP     &msc SCRL_RIGHT
+&trans      &trans          &trans        &trans        &mkp LCLK             &mkp RCLK            &trans    &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &mmv MOVE_RIGHT
             >;
         };
     };
