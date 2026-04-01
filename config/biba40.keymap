@@ -46,46 +46,46 @@ As such, those are in use within the default layer at this time.*/
 
         default_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  ESC   |   Q    |   W    |   E    |   R    |   T    |                                      |   Y    |   U    |   I    |   O    |   P    |  BSPC  |
-            // |  TAB  |   A    |   S    |   D    |   F    |   G    |                                      |   H    |   J    |   K    |   L    |   ;    |   "    |
-            // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |                                      |   N    |   M    |   ,    |   .    |   UP   |  ENTER |
-            // |  FUNC |  CTRL  |  LALT  |  LGUI  | LOWER  | SPACE  |                                      | SPACE  |  RAISE |  SLASH |  LEFT  |  DOWN  |  RIGHT |
+            // |  ESC   |   Q    |   W    |   E    |   R    |   T    |                   |   Y    |   U    |   I    |   O    |   P    |  BSPC  |
+            // |  TAB   |   A    |   S    |   D    |   F    |   G    |                   |   H    |   J    |   K    |   L    |   ;    |   "    |
+            // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |                   |   N    |   M    |   ,    |   .    |   /    | SFT/ENT|
+            // |  CTRL  |  GUI   |  LALT  | CAPS/FN| LOWER  | SPACE  |                   | SPACE  |  RAISE |  LEFT  |   UP   |  DOWN  |  RIGHT |
             // ---------------------------------------------------------------------------------------------------------------------------------
             bindings = <
 &kp ESC       &kp Q      &kp W     &kp E     &kp R      &kp T              &kp Y      &kp U      &kp I      &kp O       &kp P     &kp BSPC
 &kp TAB       &kp A      &kp S     &kp D     &kp F      &kp G              &kp H      &kp J      &kp K      &kp L       &kp SEMI  &kp SQT
-&kp LSHFT     &kp Z      &kp X     &kp C     &kp V      &kp B              &kp N      &kp M      &kp COMMA  &kp PERIOD  &kp UP    &kp ENTER
-&mo FUNCTION  &kp LCTRL  &kp LALT  &kp LGUI  &mo LOWER  &kp SPACE          &kp SPACE  &mo RAISE  &kp SLASH  &kp LEFT    &kp DOWN  &kp RIGHT
+&kp LSHFT     &kp Z      &kp X     &kp C     &kp V      &kp B              &kp N      &kp M      &kp COMMA  &kp PERIOD  &kp SLASH &mt RSHFT ENTER
+&kp LCTRL     &kp LGUI   &kp LALT  &lt FUNCTION CAPS &mo LOWER  &kp SPACE       &kp SPACE  &mo RAISE  &kp LEFT   &kp UP      &kp DOWN  &kp RIGHT
             >;
         };
 
         lower_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |  `   |  1   |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   | BSPC |
-            // |      |      |      |      |      |      |                              |      |  4   |  5   |  6   |  -   |   +  |
-            // |      |      |      |      |      |      |                              |      |  1   |  2   |  3   |VOL U | ENTER|
-            // | BOOT |      |      |      |      |      |                              |      |      |  0   |      |VOL D |      |
+            // |       |   !   |   @   |   #   |   $   |   %   |                          |   ^   |   &   |   *   |   (   |   )   |       |
+            // |       |       |       |       |       |       |                          |       |   _   |   +   |   {   |   }   |   |   |
+            // |       |       |       |       |       |       |                          |       |   ~   |       |       |       |       |
+            // |       |       |       |       |       |       |                          |       |       | HOME  | PGDN  | PGUP  |  END  |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3  &kp N4  &kp N5          &kp N6  &kp N7      &kp N8  &kp N9  &kp N0        &kp BSPC
-&trans       &trans  &trans  &trans  &trans  &trans          &trans  &kp N4      &kp N5  &kp N6  &kp MINUS     &kp PLUS
-&trans       &trans  &trans  &trans  &trans  &trans          &trans  &kp N1      &kp N2  &kp N3  &kp C_VOL_UP  &kp ENTER
-&bootloader  &trans  &trans  &trans  &trans  &trans          &trans  &mo ADJUST  &kp N0  &trans  &kp C_VOL_DN  &trans
+&trans     &kp EXCL  &kp AT    &kp HASH   &kp DLLR     &kp PRCNT                &kp CARET  &kp AMPS        &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&trans     &trans    &trans    &trans     &trans       &trans                   &trans     &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE
+&trans     &trans    &trans    &trans     &trans       &trans                   &trans     &kp TILDE       &trans     &trans    &trans    &trans
+&trans     &trans    &trans    &trans     &trans       &trans                   &trans     &trans          &kp HOME   &kp PG_DN &kp PG_UP &kp END
             >;
         };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |   ~   |   !   |   @   |   #   |   $   |   %   |                          |   ^   |   &   |   *   |   (   |   )   |  DEL  |
-            // |       |       |       |       |       |       |                          |       |   -   |   =   |   [   |   ]   |   \   |
-            // |       |       |       |       |       |       |                          |       |       |       | LBKT  | RBKT  |  LCLK |
-            // |       |       |       |       |       |       |                          |       |       |       |  LT   |  GT   | BOOT  |
+            // |       |  1   |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |       |
+            // |       |      |      |      |      |      |                              |      |  -   |  =   |  [   |  ]   |   \   |
+            // |       |      |      |      |      |      |                              |      |  `   |      |      |      |       |
+            // |       |      |      |      |      |      |                              |      |      |      |      |      |       |
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&kp TILDE  &kp EXCL  &kp AT    &kp HASH   &kp DLLR     &kp PRCNT                &kp CARET  &kp AMPS        &kp ASTRK  &kp LPAR  &kp RPAR  &kp DEL
-&trans     &trans    &trans    &trans     &trans       &trans                   &kp EQUAL  &kp MINUS       &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE
-&kp LSHFT  &kp BSLH  &kp FSLH  &trans     &trans       &trans                   &trans     &kp UNDERSCORE  &trans     &kp LBKT  &kp RBKT  &mkp LCLK
-&trans     &kp CAPS  &trans    &trans     &mo ADJUST   &trans                   &trans     &trans          &trans     &kp LT    &kp GT    &bootloader
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5          &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp GRAVE  &trans     &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans     &trans     &trans    &trans    &trans
             >;
         };
 
@@ -106,16 +106,16 @@ As such, those are in use within the default layer at this time.*/
 
         function_layer {
             // -----------------------------------------------------------------------------------------------------------------------------
-            // |   F1   |   F2   |   F3   |   F4   |   F5   |   F6   |                          |   F7   |   F8   |   F9   |   F10  |   F11  |   F12  |
-            // |        |        |        |        |        |        |                          |        |        |        |        |        |        |
-            // |        |        |        |        |        |        |                          |        |        | SCRL↑ |  RCLK  |   UP   |  LCLK  |
-            // |        |        |        |        |        |        |                          |        |        | SCRL↓ |  LEFT  |  DOWN  |  RIGHT |
+            // |        |        |        |        |        |        |               |        |        |        |        |        |        |
+            // |        |        |        |        |        |        |               |        |        | WWBK   |        |        | WWFWD  |
+            // |        |        |        |        |        |        |               |        |        | S LEFT | S DOWN |  S UP  | S RIGHT|
+            // |        |        |        |        |  LCLK  |  RCLK  |               |        |        | M LEFT | M DOWN |  M UP  | M RIGHT|
             // -----------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&kp F1    &kp F2          &kp F3    &kp F4    &kp F5    &kp F6                         &kp F7    &kp F8    &kp F9           &kp F10          &kp F11          &kp F12
-&trans    &trans          &trans    &trans    &trans    &trans                         &trans    &trans    &trans           &trans           &trans           &trans
-&trans    &trans          &trans    &trans    &trans    &trans                         &trans    &trans    &msc SCRL_UP     &mkp RCLK        &mmv MOVE_UP     &mkp LCLK
-&trans    &studio_unlock  &trans    &trans    &trans    &trans                         &trans    &trans    &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT
+&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &trans          &trans          &trans           &trans
+&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &kp C_AC_BACK   &trans          &trans           &kp C_AC_FORWARD
+&trans    &trans    &trans    &trans    &trans     &trans                             &trans    &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP     &msc SCRL_RIGHT
+&trans    &trans    &trans    &trans    &mkp LCLK  &mkp RCLK                          &trans    &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &mmv MOVE_RIGHT
             >;
         };
     };
