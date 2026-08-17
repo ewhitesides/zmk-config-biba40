@@ -20,6 +20,7 @@
 #define RAISE  2
 #define ADJUST 3
 #define FUNCTION 4
+#define MOUSE 5
 
 /* NOTE: At the time of the creation of this keymap, there are no specified codes for 'eisuu' and 'kana' input in ZMK.
 However, 'LANG1' and 'LANG2' are fully-functioning candidates for 'kana' and 'eisuu' input respectively.
@@ -73,7 +74,7 @@ As such, those are in use within the default layer at this time.*/
 &kp ESC       &kp Q      &kp W     &kp E             &kp R      &kp T                &kp Y       &kp U      &kp I      &kp O       &kp P     &kp BSPC
 &kp TAB       &kp A      &kp S     &kp D             &kp F      &kp G                &kp H       &kp J      &kp K      &kp L       &kp SEMI  &kp SQT
 &kp LSHFT     &kp Z      &kp X     &kp C             &kp V      &kp B                &kp N       &kp M      &kp COMMA  &kp PERIOD  &kp SLASH &mt RSHFT ENTER
-&kp LCTRL     &kp LGUI   &kp LALT  &lt FUNCTION CAPS &mo LOWER  &kp SPACE            &kp SPACE   &mo RAISE  &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
+&kp LCTRL     &kp LGUI   &kp LALT  &lt FUNCTION CAPS &mo LOWER  &kp SPACE            &mo MOUSE   &mo RAISE  &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
             >;
         };
 
@@ -106,10 +107,19 @@ As such, those are in use within the default layer at this time.*/
 
         function_layer {
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &trans    &trans    &trans          &trans          &trans           &trans
-&bt BT_NXT  &out OUT_TOG    &out OUT_USB  &out OUT_BLE  &trans        &trans         &trans    &trans    &kp C_AC_BACK   &trans          &trans           &kp C_AC_FORWARD
-&bt BT_PRV  &bt BT_CLR_ALL  &trans        &trans        &trans        &trans         &trans    &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP     &msc SCRL_RIGHT
-&bootloader &soft_off       &trans        &trans        &mkp LCLK     &mkp RCLK      &trans    &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &mmv MOVE_RIGHT
+&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &trans    &trans    &trans  &trans  &trans  &trans
+&bt BT_NXT  &out OUT_TOG    &out OUT_USB  &out OUT_BLE  &trans        &trans         &trans    &trans    &trans  &trans  &trans  &trans
+&bt BT_PRV  &bt BT_CLR_ALL  &trans        &trans        &trans        &trans         &trans    &trans    &trans  &trans  &trans  &trans
+&bootloader &soft_off       &trans        &trans        &trans        &trans         &trans    &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        mouse_layer {
+            bindings = <
+&trans      &trans          &trans        &trans        &trans        &trans         &kp C_AC_BACK  &mkp LCLK       &mkp RCLK       &trans           &trans           &kp C_AC_FORWARD
+&trans      &trans          &trans        &trans        &trans        &trans         &trans         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &mmv MOVE_RIGHT  &trans
+&trans      &trans          &trans        &trans        &trans        &trans         &trans         &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP     &msc SCRL_RIGHT  &trans
+&trans      &trans          &trans        &trans        &trans        &trans         &trans         &trans          &trans          &trans           &trans           &trans
             >;
         };
     };
